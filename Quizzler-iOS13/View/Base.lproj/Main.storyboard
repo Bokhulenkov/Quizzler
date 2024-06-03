@@ -59,7 +59,7 @@
                                             <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tz9-lo-7Pl"/>
                                         </connections>
                                     </button>
-                                    <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TXm-qh-7Xg">
+                                    <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="TXm-qh-7Xg">
                                         <rect key="frame" x="0.0" y="804" width="374" height="11"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.2770131528" green="0.3800790906" blue="0.57570761439999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -71,6 +71,13 @@
                                     </progressView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjA-58-4aT">
+                                <rect key="frame" x="20" y="48" width="144" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.17254901960784313" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,6 +95,7 @@
                         <outlet property="falseButton" destination="tbn-vQ-GyC" id="bAD-if-qOl"/>
                         <outlet property="progressBar" destination="TXm-qh-7Xg" id="sBR-sV-o5H"/>
                         <outlet property="questionLabel" destination="rSI-li-mhO" id="M9d-do-fq2"/>
+                        <outlet property="scoreLabel" destination="kjA-58-4aT" id="fTk-hr-RTj"/>
                         <outlet property="trueButton" destination="oVw-Hl-IRe" id="qb5-Pw-m1o"/>
                     </connections>
                 </viewController>
