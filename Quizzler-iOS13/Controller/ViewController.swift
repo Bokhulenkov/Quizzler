@@ -12,42 +12,46 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var firstAnswerButton: UIButton!
+    @IBOutlet weak var secondAnswerButton: UIButton!
+    @IBOutlet weak var thirdAnswerButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     
     var quizBrain = QuizBrain()
     
+//    MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        createQuestionLabel()
+        updeteUI()
 
     }
 
+//    MARK: - Helpers
+    
     @IBAction func answerButtonPressed(_ sender: UIButton) {
+        updeteUI()
         
         guard let userAnswer = sender.currentTitle else { return }
-        let userGotItRight = quizBrain.checkAnswer(userAnswer)
+        print("userAnswer \(userAnswer)")
+        quizBrain.checkAnswer(userAnswer)
         
-        userGotItRight ? (sender.backgroundColor = .green) : (sender.backgroundColor = .red)
         
+    }
+    
+    func optionsAnswers() {
+        let answer = quizBrain.getOptionsAnswers()
+        firstAnswerButton.setTitle(answer[0], for: .normal)
+        secondAnswerButton.setTitle(answer[1], for: .normal)
+        thirdAnswerButton.setTitle(answer[2], for: .normal)
+    }
+    
+    func updeteUI() {
         quizBrain.nextQuestion()
-        
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
-    }
-    
-    private func createQuestionLabel() {
         questionLabel.text = quizBrain.getQuestionText()
-    }
-    
-    @objc func updateUI() {
         progressBar.progress = quizBrain.getProgress()
-        scoreLabel.text = "Score: \(quizBrain.score)"
-        trueButton.backgroundColor = .clear
-        falseButton.backgroundColor = .clear
-        createQuestionLabel()
+        optionsAnswers()
     }
 
 }

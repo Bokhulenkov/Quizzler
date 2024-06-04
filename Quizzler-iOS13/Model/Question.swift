@@ -10,5 +10,6 @@ import Foundation
 
 struct Question {
     let text: String
-    let answer: String
+    let answer: [String]
+    let correctAnswer: String
 }
